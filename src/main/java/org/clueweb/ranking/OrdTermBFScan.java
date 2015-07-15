@@ -85,7 +85,7 @@ public class OrdTermBFScan {
       for(int l = 0; l < allQuery.query[k].TermID.size(); l++) {
         int id = allQuery.query[k].TermID.get(l);
         int df = stats.getDf(id);
-        idf.add((float) Math.log((1.0f*52000000-df+0.5f)/(df+0.5f)));
+        idf.add((float) Math.log((1.0f*numDoc-df+0.5f)/(df+0.5f)));
         ctf.add(stats.getCf(id));
       }
       allQuery.query[k] = new Query(allQuery.query[k].qno, allQuery.query[k].TermID, idf, ctf);
